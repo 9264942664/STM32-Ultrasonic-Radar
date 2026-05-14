@@ -1,0 +1,22 @@
+#include "stm32f10x.h"                  // Device header
+#include "Delay.h"
+#include "OLED.h"
+#include "Servo.h"
+#include "HCSR04.h"
+#include "Interface.h"
+#include "encoder.h"
+
+int main(void)
+{
+	OLED_Init();
+	Servo_Init();
+	HCSR04_Init();
+	Interface_Init();
+	
+	while(1)
+	{
+		Interface_Run(0, 1);		//第一个参数设置扫描速度， 第二个参数设置雷达范围，由旋转编码器控制
+
+	}
+
+}
