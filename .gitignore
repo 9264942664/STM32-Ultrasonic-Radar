@@ -94,3 +94,7 @@ qrc_*.cpp
 .idea/
 *.sln
 *.vcxproj*
+
+开题报告/
+中期检查/
+指导日志/
