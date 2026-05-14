@@ -67,3 +67,30 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+# STM32 / Keil / MDK
+*.uvguix.*
+*.uvoptx
+*.uvprojx
+*.hex
+*.axf
+*.map
+*.lst
+*.dep
+Debug/
+Release/
+Objects/
+
+# Qt
+*.pro.user
+*.pro.user.*
+*.qmake.stash
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+.qtc_clangd/
+
+# IDE
+.vscode/
+.idea/
+*.sln
+*.vcxproj*
