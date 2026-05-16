@@ -80,7 +80,6 @@ void Interface_Run(uint8_t scanTime, int8_t range)
             if (r < 1)  r = 1;
             range = r;
         }
-        TIM_SetCounter(TIM3, 0);
 
         if (dist / range <= pointer.Radius) {
             objectx = pointer.CenterX + dist / range * cos((float)pointer.Angle * PI / 180);
@@ -134,7 +133,6 @@ void Interface_Run(uint8_t scanTime, int8_t range)
             if (r < 1)  r = 1;
             range = r;
         }
-        TIM_SetCounter(TIM3, 0);
 
         if (dist / range <= pointer.Radius) {
             objectx = pointer.CenterX + dist / range * cos((float)pointer.Angle * PI / 180);

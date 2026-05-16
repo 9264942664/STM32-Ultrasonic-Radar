@@ -45,7 +45,23 @@ void Encoder_Init(void)
 
 int8_t Encoder_GetValue(void)
 {
-	
-	return TIM_GetCounter(TIM3) / 4;
+    static uint16_t prev = 0;
+    static int16_t frac = 0;
+    static uint8_t init = 0;
 
+    uint16_t cur = TIM_GetCounter(TIM3);
+
+    if (!init) {
+        prev = cur;
+        init = 1;
+        return 0;
+    }
+
+    int16_t diff = (int16_t)(cur - prev);
+    prev = cur;
+    frac += diff;
+
+    int8_t result = (int8_t)(frac / 4);
+    frac -= result * 4;
+    return result;
 }
