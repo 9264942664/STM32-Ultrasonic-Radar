@@ -49,6 +49,8 @@ CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
+Makefile.Debug
+Makefile.Release
 install_manifest.txt
 compile_commands.json
 
@@ -92,3 +94,5 @@ qrc_*.cpp
 .idea/
 *.sln
 *.vcxproj*
+.aider*
+.claude/

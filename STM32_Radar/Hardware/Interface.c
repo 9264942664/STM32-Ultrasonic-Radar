@@ -78,10 +78,11 @@ void Interface_Run(uint8_t scanTime, int8_t range)
         OLED_Update();
 		Delay_ms(scanTime);
         dist = HCSR04_GetDistance();
-        Serial_SendString("Angle:");
         Serial_SendNumber(pointer.Angle);
-        Serial_SendString(" Dist:");
+        Serial_SendString(",");
         Serial_SendNumber((uint16_t)dist);
+        Serial_SendString(",");
+        Serial_SendNumber(range);
         Serial_SendString("\r\n");
 		encoder_value = Encoder_GetValue();
 		range = (range + encoder_value) > 10 ? 10 : (range + encoder_value);
@@ -138,10 +139,11 @@ void Interface_Run(uint8_t scanTime, int8_t range)
         OLED_Update();
 		Delay_ms(scanTime);
         dist = HCSR04_GetDistance();
-        Serial_SendString("Angle:");
         Serial_SendNumber(pointer.Angle);
-        Serial_SendString(" Dist:");
+        Serial_SendString(",");
         Serial_SendNumber((uint16_t)dist);
+        Serial_SendString(",");
+        Serial_SendNumber(range);
         Serial_SendString("\r\n");
 		encoder_value = Encoder_GetValue();
 		range = (range + encoder_value) > 10 ? 10 : (range + encoder_value);
