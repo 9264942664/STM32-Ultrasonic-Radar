@@ -74,8 +74,12 @@ void Interface_Run(uint8_t scanTime, int8_t range)
         Serial_SendString("\r\n");
 
         encoder_value = Encoder_GetValue();
-        range = (range + encoder_value) > 10 ? 10 : (range + encoder_value);
-        range = (range + encoder_value) < 1 ? 1 : (range + encoder_value);
+        {
+            int r = range + encoder_value;
+            if (r > 10) r = 10;
+            if (r < 1)  r = 1;
+            range = r;
+        }
         TIM_SetCounter(TIM3, 0);
 
         if (dist / range <= pointer.Radius) {
@@ -124,8 +128,12 @@ void Interface_Run(uint8_t scanTime, int8_t range)
         Serial_SendString("\r\n");
 
         encoder_value = Encoder_GetValue();
-        range = (range + encoder_value) > 10 ? 10 : (range + encoder_value);
-        range = (range + encoder_value) < 1 ? 1 : (range + encoder_value);
+        {
+            int r = range + encoder_value;
+            if (r > 10) r = 10;
+            if (r < 1)  r = 1;
+            range = r;
+        }
         TIM_SetCounter(TIM3, 0);
 
         if (dist / range <= pointer.Radius) {
